@@ -75,8 +75,6 @@ class GenerateWinner(APIView):
     permission_classes = [IsAdminUser]
 
     def post(self, request):
-        print(f"Usuario autenticado: {request.user}")  # Depuración
-        print(f"Usuario autenticado es staff: {request.user.is_staff}")  # Depuración
         verified_users = Contestant.objects.filter(email_verified=True)
 
         if not verified_users.exists():
